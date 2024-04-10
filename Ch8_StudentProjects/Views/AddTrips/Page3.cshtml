@@ -1,0 +1,25 @@
+﻿@*@model TripViewModel
+@{
+    ViewData["Title"] = "Add P3: Trip Log";
+}
+
+<form asp-action="Add" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <label asp-for="Trip.Activity1" class="form-label">Activity1</label>
+    <input asp-for="Trip.Activity1" class="form-control" />
+
+    <label asp-for="Trip.Activity2" class="form-label">Activity2</label>
+    <input asp-for="Trip.Activity2" class="form-control" />
+
+    <label asp-for="Trip.Activity3" class="form-label">Activity3</label>
+    <input asp-for="Trip.Activity3" class="form-control" />
+
+
+
+
+    <input type="hidden" asp-for="Trip.TripId" />
+    <input type="hidden" asp-for="Page" value="3" />
+    <button type="submit" class="btn btn-primary">Next</button>
+    <a asp-action="Cancel">Cancel</a>
+</form>*@

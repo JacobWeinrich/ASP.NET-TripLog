@@ -1,0 +1,27 @@
+﻿@model List<Activity>
+
+@{
+    ViewData["Title"] = "Trip Log";
+}
+<div class="bg-danger text-white text-center fs-2">
+    @ViewData["Message"]
+</div>
+<h2>Activity</h2>
+<a asp-action="Add" asp-controller="Activity">Add Activity</a>
+<table class="table table-secondary mt-2">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var activity in Model)
+        {
+            <tr>
+                <td>@activity.Name</td>
+                <td><a class="btn btn-primary" asp-action="Delete" asp-controller="Activity" asp-route-id="@activity.ActivityId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

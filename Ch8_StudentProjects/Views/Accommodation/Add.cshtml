@@ -1,0 +1,21 @@
+﻿@model Accommodation
+@{
+    ViewData["Title"] = "Add P1: Trip Log";
+}
+<h2>Add Accommodations</h2>
+<form asp-action="Add" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <label asp-for="Name" class="form-label">Name</label>
+    <input asp-for="Name" class="form-control" />
+
+    <label asp-for="AccommodationEmail" class="form-label">Email</label>
+    <input asp-for="AccommodationEmail" class="form-control" />
+
+    <label asp-for="AccommodationPhone" class="form-label">Phone#</label>
+    <input asp-for="AccommodationPhone" class="form-control" />
+
+    <input type="hidden" asp-for="AccommodationId" />
+    <button type="submit" class="btn btn-primary">Next</button>
+    <a asp-action="Cancel">Cancel</a>
+</form>

@@ -1,0 +1,42 @@
+﻿@model List<Trip>
+
+@{
+    ViewData["Title"] = "Trip Log";
+}
+
+<a asp-action="Add" asp-controller="TripManager">Add Trip</a>
+<table class="table table-secondary mt-2">
+    <thead>
+        <tr>
+            <th>Destination</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Accommodations</th>
+            <th>Things To Do</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var trip in Model)
+        {
+            <tr>
+                <td>@trip.Destination!.Name</td>
+                <td>@trip.StartDate.ToShortDateString()</td>
+                <td>@trip.EndDate.ToShortDateString()</td>
+                <td>
+                    @trip.Accommodation.Name<br />
+                    Phone: @trip.Accommodation.AccommodationPhone<br />
+                    Emai: @trip.Accommodation.AccommodationEmail
+                </td>
+                <td>
+                    @foreach (var activity in trip.Activities)
+                    {
+                        <span>@activity.Name</span>
+                        <br />
+                    }
+                </td>
+                <td><a class="btn btn-primary" asp-action="Delete" asp-controller="TripManager" asp-route-id="@trip.TripId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

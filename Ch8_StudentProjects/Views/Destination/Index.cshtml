@@ -1,0 +1,27 @@
+﻿@model List<Destination>
+
+@{
+    ViewData["Title"] = "Trip Log";
+}
+<div class="bg-danger text-white text-center fs-2">
+    @ViewData["Message"]
+</div>
+<h2>Destinations</h2>
+<a asp-action="Add" asp-controller="Destination">Add Destination</a>
+<table class="table table-secondary mt-2">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var destination in Model)
+        {
+            <tr>
+                <td>@destination.Name</td>
+                <td><a class="btn btn-primary" asp-action="Delete" asp-controller="Destination" asp-route-id="@destination.DestinationId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
